@@ -1,26 +1,23 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import Checkbox from '@mui/material/Checkbox';
+import {green, orange, red} from '@mui/material/colors';
+import AppLayout from "./components/AppLayout";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const theme = createTheme({
+    palette: {
+        primary: {
+            main: red[500],
+        },
+    },
+});
+
+export default function App() {
+    return (
+        <ThemeProvider theme={theme}>
+            <AppLayout >
+                <div>child</div>
+            </AppLayout>
+        </ThemeProvider>
+    );
 }
-
-export default App;
